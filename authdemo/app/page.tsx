@@ -32,6 +32,12 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center h-screen justify-center">
       <h1 className="text-3xl font-bold mb-8">Welcome to My App Authentication</h1>
+      <p
+        className="mb-8 max-w-xl text-center text-lg text-gray-600 bg-white/70 rounded-lg px-6 py-4 shadow"
+        aria-label="App description"
+      >
+        This app demonstrates secure user authentication and sign-up using email and password with Firebase, React, and Next.js. Explore how modern web technologies enable seamless, user-friendly authentication flows.
+      </p>
       {user && (
         <>
           <div className="mb-4 text-center">
