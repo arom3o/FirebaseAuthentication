@@ -1,15 +1,22 @@
 'use client';
 
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/firebaseconfig";
+import { useAuth } from "@/context/AuthContext";
 
-const Login = () => {
+export default function LoginPage () {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
+  const { user, loading:authIsLoading } = useAuth();
+  useEffect(() => {
+    if (!authIsLoading && user) {
+      router.push("/");
+    }
+  }, [user, router, authIsLoading]);
 
   const handleLogin = async () => {
     setError("");
@@ -34,7 +41,8 @@ const Login = () => {
   return (
     <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8 bg-gray-50">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
+        <h1 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Welcome to My App Authentication</h1>
+        <h2 className="mt-6 text-center text-2xl tracking-tight text-gray-600">Sign in to your account</h2>
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
@@ -92,13 +100,21 @@ const Login = () => {
                 Sign in
               </button>
             </div>
+            <div className="mt-4">
+              <button
+                type="button"
+                className="flex w-full justify-center rounded-md border border-indigo-600 bg-white py-2 px-4 text-sm font-medium text-indigo-600 shadow-sm hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                onClick={() => router.push('/signup')}
+                onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { router.push('/signup'); } }}
+                aria-label="Sign up"
+                tabIndex={0}
+              >
+                Sign up
+              </button>
+            </div>
           </form>
         </div>
       </div>
     </div>
   );
-};
-
-export default Login;
-  
-        
+}

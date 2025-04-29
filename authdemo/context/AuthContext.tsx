@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+'use client';
+
+import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "@/firebase/firebaseconfig";
 import { onAuthStateChanged, User } from "firebase/auth";
 
