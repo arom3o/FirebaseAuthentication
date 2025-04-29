@@ -4,7 +4,10 @@ This is a secure user authentication application built with Next.js and Firebase
 
 ## Features
 
-- **User Authentication**: Sign up, login, and logout functionality
+- **User Authentication**: Sign up and log in with either:
+  - Email Link (passwordless, magic link)
+  - Email & Password
+- **User Choice**: Users can choose their preferred authentication method on both signup and login pages.
 - **Protected Routes**: Secure pages that require authentication 
 - **Firebase Integration**: Secure authentication using Firebase Auth
 - **Modern UI**: Clean, responsive design using TailwindCSS
@@ -31,7 +34,7 @@ This is a secure user authentication application built with Next.js and Firebase
 
 3. **Set up Firebase**
    - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
-   - Enable Authentication with Email/Password provider
+   - Enable Authentication with Email/Password provider **and** Email Link (passwordless) provider
    - Create a `.env.local` file in the root directory with your Firebase configuration:
    ```
    NEXT_PUBLIC_FIREBASE_API_KEY=your-api-key
@@ -40,7 +43,9 @@ This is a secure user authentication application built with Next.js and Firebase
    NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-storage-bucket
    NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
    NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
+   NEXT_PUBLIC_FIREBASE_EMAIL_LINK_URL=http://localhost:3000/login
    ```
+   - `NEXT_PUBLIC_FIREBASE_EMAIL_LINK_URL` should be set to the URL where users will be redirected after clicking the magic link (e.g., your login page).
 
 4. **Run the development server**
    ```bash
