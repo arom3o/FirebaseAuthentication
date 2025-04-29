@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Firebase Authentication Demo with Next.js
+
+This is a secure user authentication application built with Next.js and Firebase. It demonstrates a complete authentication system with login, signup, and protected routes.
+
+## Features
+
+- **User Authentication**: Sign up, login, and logout functionality
+- **Protected Routes**: Secure pages that require authentication 
+- **Firebase Integration**: Secure authentication using Firebase Auth
+- **Modern UI**: Clean, responsive design using TailwindCSS
+- **TypeScript**: Type-safe codebase
+- **React Query**: Data fetching and state management
+
+## Tech Stack
+
+- Next.js 15+
+- React 19
+- Firebase 11+
+- TypeScript
+- TailwindCSS 4
+- React Query (TanStack Query)
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Set up Firebase**
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
+   - Enable Authentication with Email/Password provider
+   - Create a `.env.local` file in the root directory with your Firebase configuration:
+   ```
+   NEXT_PUBLIC_FIREBASE_API_KEY=your-api-key
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-auth-domain
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+   NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+5. **Open [http://localhost:3000](http://localhost:3000) with your browser to see the application**
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `app/` - Next.js app directory with pages and layouts
+- `context/` - React context providers including AuthContext
+- `firebase/` - Firebase configuration and utilities
+- `provider/` - Additional providers like ReactQueryProvider
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The application can be easily deployed on Vercel:
 
-## Deploy on Vercel
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyourusername%2Ffirebase-auth-demo)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.
